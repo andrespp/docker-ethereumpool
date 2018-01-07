@@ -8,11 +8,21 @@ run_ethminer() {
     HASH_RATE=${HASH_RATE:-0.01}
     ETH_ADDRESS=${ETH_ADDRESS:-0x88c6b20032f48d219a5136db6366500cab33c17a}
     RIG_NAME=${RIG_NAME:-localhost}
+    PROCESSOR=${PROCESSOR:-CPU}
 
-    ethminer -F http://ethereumpool.co/?miner=$HASH_RATE@$ETH_ADDRESS@$RIG_NAME
+    case "$PROCESSOR" in
+        CPU)
+            ethminer -F http://ethereumpool.co/?miner=$HASH_RATE@$ETH_ADDRESS@$RIG_NAME
+        ;;
+        GPU)
+            ethminer -G -F http://ethereumpool.co/?miner=$HASH_RATE@$ETH_ADDRESS@$RIG_NAME
+        ;;
+        *)
+            exit 1
+    esac
 }
 
-error() {
+test_proc() {
     exit 1
 }
 
@@ -21,8 +31,8 @@ case "$1" in
         shift 1
         run_ethminer "$@"
         ;;
-    error)
-        error
+    test)
+        test_proc
         ;;
     *)
         exec "$@"

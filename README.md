@@ -14,6 +14,7 @@ $ docker container run --rm -d  --name miner \
 	-v miner_ethash:/root/.ethash \
 	-e HASH_RATE=0.1 \
 	-e ETH_ADDRESS=0x88c6b20032f48d219a5136db6366500cab33c17a \
+	-e PROCESSOR=CPU \
 	-e RIG_NAME=workername ethereumpool
 ```
 
@@ -31,7 +32,8 @@ This image uses several environment variables in order to control its behavior, 
 | -------------------- | ------------- | -----|
 | HASH\_RATE | 0.01 | Hashrate in Mhash. Defaul is the minimum of 0.01 Mhash IN MHASH |
 | ETH\_ADDRESS | 0x88c6b20032f48d219a5136db6366500cab33c17a | Your Ethereum Wallet address. Default is my own wallet, change it for yours! |
-| RIG\_NAME | localhost | optional rig name |
+| RIG\_NAME | localhost | Optional rig name |
+| PROCESSOR | CPU | Select between CPU or GPU for mining |
 
 # Issues
 
