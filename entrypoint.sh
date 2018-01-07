@@ -23,7 +23,18 @@ run_ethminer() {
 }
 
 test_proc() {
-    exit 1
+
+    case "$PROCESSOR" in
+        CPU)
+            ethminer -M
+        ;;
+        GPU)
+            ethminer -G -M
+        ;;
+        *)
+            exit 1
+    esac
+
 }
 
 case "$1" in

@@ -24,6 +24,14 @@ $ docker container run --rm -d  --name miner \
 $ docker container logs -f miner
 ```
 
+# MHash Value
+
+To find out your hardware's proper MHash value, run the following command and divide the result by 1000000:
+
+```bash
+$ docker container run --rm -e PROCESSOR=CPU ethereumpool test
+```
+
 # Environment variables
 
 This image uses several environment variables in order to control its behavior, and some of them may be required
