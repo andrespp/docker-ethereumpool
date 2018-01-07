@@ -15,7 +15,7 @@ $ docker container run --rm -d  --name miner \
 	-e HASH_RATE=0.1 \
 	-e ETH_ADDRESS=0x88c6b20032f48d219a5136db6366500cab33c17a \
 	-e PROCESSOR=CPU \
-	-e RIG_NAME=workername ethereumpool
+	-e RIG_NAME=workername andrespp/ethereumpool
 ```
 
 # Logs
