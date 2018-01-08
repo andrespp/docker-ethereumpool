@@ -1,5 +1,5 @@
-Docker JasperReports Server
-===========================
+Docker EthereumPool.co mining
+=============================
 
 # Introduction
 
